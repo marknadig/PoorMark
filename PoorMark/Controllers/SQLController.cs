@@ -17,6 +17,7 @@ namespace PoorMark
         [HttpGet]
         public ContentResult Get()
         {
+            // simple test
             var svc = new FormatterService();
             return Content(svc.FormatTSql("Select * From em"), System.Net.Mime.MediaTypeNames.Text.Html);
         }
@@ -34,6 +35,7 @@ namespace PoorMark
         [HttpPut]
         public IActionResult Put([FromForm] FormatterService.Options options)
         {
+            // PUT to see how options deserialized (including defaults)
             return Json(options);
         }
 

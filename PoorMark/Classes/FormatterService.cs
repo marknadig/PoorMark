@@ -29,6 +29,7 @@
             public bool? preserveComments { get; set; } = false;
             public bool? enableKeywordSubstitution { get; set; } = false;
             public bool? expandInLists { get; set; } = true;
+            public string format { get; set; } = "html";
         }
 
         public string FormatTSql(string inputString)
@@ -76,7 +77,12 @@
             if (options.useParseErrorPlaceholder.Value)
                 formatter.ErrorOutputPrefix = "{PARSEERRORPLACEHOLDER}";
 
-            PoorMansTSqlFormatterRedux.SqlFormattingManager fullFormatter = new PoorMansTSqlFormatterRedux.SqlFormattingManager(new PoorMansTSqlFormatterRedux.Formatters.HtmlPageWrapper(formatter));
+            PoorMansTSqlFormatterRedux.Interfaces.ISqlTreeFormatter wrapper = formatter;
+            if (string.Equals("html", options.format, System.StringComparison.OrdinalIgnoreCase))
+            {
+                wrapper = new PoorMansTSqlFormatterRedux.Formatters.HtmlPageWrapper(formatter);
+            }
+            PoorMansTSqlFormatterRedux.SqlFormattingManager fullFormatter = new PoorMansTSqlFormatterRedux.SqlFormattingManager(wrapper);
             return fullFormatter.Format(options.inputString);
         }
     }
