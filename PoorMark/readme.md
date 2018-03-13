@@ -1,0 +1,1 @@
+﻿This is a simple service wrapper around the PoorMansSqlFormatterRedux NuGet package. https://github.com/bungeemonkee/PoorMansTSqlFormatterRedux
