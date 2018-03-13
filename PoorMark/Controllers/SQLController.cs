@@ -18,7 +18,7 @@ namespace PoorMark
         public ContentResult Get()
         {
             var svc = new FormatterService();
-            return Content(svc.FormatTSql("Select * From em"));
+            return Content(svc.FormatTSql("Select * From em"), System.Net.Mime.MediaTypeNames.Text.Html);
         }
 
         // POST api/<controller> 
@@ -27,7 +27,7 @@ namespace PoorMark
         public ContentResult Post([FromForm] FormatterService.Options options)
         {
             var svc = new FormatterService();
-            return Content(svc.FormatTSqlWithOptions(options));
+            return Content(svc.FormatTSqlWithOptions(options), System.Net.Mime.MediaTypeNames.Text.Html);
         }
 
         // PUT api/<controller> 
