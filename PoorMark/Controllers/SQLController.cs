@@ -15,9 +15,10 @@ namespace PoorMark
 
         // GET api/<controller>
         [HttpGet]
-        public IActionResult Get()
+        public String Get()
         {
-            return Json( new FormatterService.Options());
+            var svc = new FormatterService();
+            return svc.FormatTSql("Select * From em");
         }
 
         // POST api/<controller> 
