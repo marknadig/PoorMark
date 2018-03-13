@@ -30,5 +30,12 @@ namespace PoorMark
             return Json(svc.FormatTSqlWithOptions(options));
         }
 
+        // PUT api/<controller> 
+        [HttpPut]
+        public IActionResult Put([FromForm] FormatterService.Options options)
+        {
+            return Json(options);
+        }
+
     }
 }
