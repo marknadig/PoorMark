@@ -15,24 +15,24 @@ namespace PoorMark
 
         // GET api/<controller>
         [HttpGet]
-        public String Get()
+        public ContentResult Get()
         {
             var svc = new FormatterService();
-            return svc.FormatTSql("Select * From em");
+            return Content(svc.FormatTSql("Select * From em"));
         }
 
         // POST api/<controller> 
         // note: FromBody == json, FromForm == x-www-url-formencoded - https://andrewlock.net/model-binding-json-posts-in-asp-net-core/
         [HttpPost]
-        public IActionResult Post([FromForm] FormatterService.Options options)
+        public ContentResult Post([FromForm] FormatterService.Options options)
         {
             var svc = new FormatterService();
-            return Json(svc.FormatTSqlWithOptions(options));
+            return Content(svc.FormatTSqlWithOptions(options));
         }
 
         // PUT api/<controller> 
         [HttpPut]
-        public IActionResult Put([FromForm] FormatterService.Options2 options)
+        public IActionResult Put([FromForm] FormatterService.Options options)
         {
             return Json(options);
         }
