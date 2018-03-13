@@ -20,9 +20,10 @@ namespace PoorMark
             return Json( new FormatterService.Options());
         }
 
-        // POST api/<controller>
+        // POST api/<controller> 
+        // note: FromBody == json, FromForm == x-www-url-formencoded - https://andrewlock.net/model-binding-json-posts-in-asp-net-core/
         [HttpPost]
-        public IActionResult Post([FromBody] FormatterService.Options options)
+        public IActionResult Post([FromForm] FormatterService.Options options)
         {
             var svc = new FormatterService();
             return Json(svc.FormatTSqlWithOptions(options));
