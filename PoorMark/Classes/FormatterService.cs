@@ -4,32 +4,62 @@
     {
         public class Options
         {
-            public string inputString;
-            public bool reFormat = true;
-            public string indent = "\t";
-            public int spacesPerTab = 4;
-            public int maxLineWidth = 999;
-            public int statementBreaks = 2;
-            public int clauseBreaks = 1;
-            public bool expandCommaLists = true;
-            public bool trailingCommas = false;
-            public bool spaceAfterExpandedComma = false;
-            public bool expandBooleanExpressions = false;
-            public bool expandCaseStatements = true;
-            public bool expandBetweenConditions = true;
-            public bool breakJoinOnSections = true;
-            public bool uppercaseKeywords = false;
-            public bool coloring = true;
-            public bool keywordStandardization = true; 
-            public bool useParseErrorPlaceholder = false;
-            public bool obfuscate = false;
-            public bool randomizeColor = false;
-            public bool randomizeLineLengths = false;
-            public bool randomizeKeywordCase = false;
-            public bool preserveComments = false;
-            public bool enableKeywordSubstitution = false;
-            public bool expandInLists = true;
+            public string inputString { get; set; } 
+            public bool reFormat { get; set; } = true;
+            public string indent { get; set; } = "\t";
+            public int spacesPerTab { get; set; } = 4;
+            public int maxLineWidth { get; set; } = 999;
+            public int statementBreaks { get; set; } = 2;
+            public int clauseBreaks { get; set; } = 1;
+            public bool expandCommaLists { get; set; } = true;
+            public bool trailingCommas { get; set; } = false;
+            public bool spaceAfterExpandedComma { get; set; } = false;
+            public bool expandBooleanExpressions { get; set; } = false;
+            public bool expandCaseStatements { get; set; } = true;
+            public bool expandBetweenConditions { get; set; } = true;
+            public bool breakJoinOnSections { get; set; } = true;
+            public bool uppercaseKeywords { get; set; } = false;
+            public bool coloring { get; set; } = true;
+            public bool keywordStandardization { get; set; } = true; 
+            public bool useParseErrorPlaceholder { get; set; } = false;
+            public bool obfuscate { get; set; } = false;
+            public bool randomizeColor { get; set; } = false;
+            public bool randomizeLineLengths { get; set; } = false;
+            public bool randomizeKeywordCase { get; set; } = false;
+            public bool preserveComments { get; set; } = false;
+            public bool enableKeywordSubstitution { get; set; } = false;
+            public bool expandInLists { get; set; } = true;
         }
+
+        public class Options2
+        {
+            public string inputString { get; set; }
+            public bool? reFormat { get; set; } = true;
+            //public string indent { get; set; } = "\t";
+            public int? spacesPerTab { get; set; } = 4;
+            public int? maxLineWidth { get; set; } = 999;
+            public int? statementBreaks { get; set; } = 2;
+            public int? clauseBreaks { get; set; } = 1;
+            public bool? expandCommaLists { get; set; } = true;
+            public bool? trailingCommas { get; set; } = false;
+            public bool? spaceAfterExpandedComma { get; set; } = false;
+            public bool? expandBooleanExpressions { get; set; } = false;
+            public bool? expandCaseStatements { get; set; } = true;
+            public bool? expandBetweenConditions { get; set; } = true;
+            public bool? breakJoinOnSections { get; set; } = true;
+            public bool? uppercaseKeywords { get; set; } = false;
+            public bool? coloring { get; set; } = true;
+            public bool? keywordStandardization { get; set; } = true;
+            public bool? useParseErrorPlaceholder { get; set; } = false;
+            public bool? obfuscate { get; set; } = false;
+            public bool? randomizeColor { get; set; } = false;
+            public bool? randomizeLineLengths { get; set; } = false;
+            public bool? randomizeKeywordCase { get; set; } = false;
+            public bool? preserveComments { get; set; } = false;
+            public bool? enableKeywordSubstitution { get; set; } = false;
+            public bool? expandInLists { get; set; } = true;
+        }
+
         public string FormatTSql(string inputString)
         {
             return FormatTSqlWithOptions( new Options() { inputString = inputString });

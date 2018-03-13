@@ -32,7 +32,7 @@ namespace PoorMark
 
         // PUT api/<controller> 
         [HttpPut]
-        public IActionResult Put([FromForm] FormatterService.Options options)
+        public IActionResult Put([FromForm] FormatterService.Options2 options)
         {
             return Json(options);
         }
